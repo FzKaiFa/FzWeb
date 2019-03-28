@@ -93,26 +93,47 @@
 							<p class="card-text"></p>
 							<form>
 								<div class="form-group">
-								  <label for="email">Email:</label>
-								  <input type="email" class="form-control" id="email" placeholder="Enter email">
+								  <label for="email">姓名</label>
+								  <input type="text" class="form-control" id="name" placeholder="Enter your name">
 								</div>
 								<div class="form-group">
-								  <label for="pwd">Password:</label>
-								  <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+								  <label for="pwd">电话:</label>
+								  <input type="text" class="form-control" id="phone" placeholder="Enter telephone">
 								</div>
 								<div class="form-check">
-								  <label class="form-check-label">
+								  <!-- <label class="form-check-label">
 									<input class="form-check-input" type="checkbox"> Remember me
-								  </label>
+								  </label> -->
 								</div>
-								<button type="submit" class="btn btn-primary">Submit</button>
+								<button type="submit" class="btn btn-primary" onclick="feed()">确定</button>
 							  </form>
 						</div>
 					</div>
     </div>
   </div>
 </div>
-
+			<script type="text/javascript">
+				function feed() {
+					var url;
+					var name = document.getElementById("name").value;
+					var phone = document.getElementById("phone").value;
+					var timestamp =Date.parse(new Date());
+/* 					url = "http://148.70.108.65:8080/LogAssist/FeedBack" + "?json=" + name+"/"+phone;
+ */					
+url = "http://192.168.0.136:8083/Assist/FeedBack" + "?json=" + name+"/"+phone;
+					
+					if(name.length==0){
+						document.getElementById("name").innerText = "请输入信息";
+					}else{
+						window.open(url,top);
+					}
+					
+					}
+					
+					
+					
+			</script>
+	
 
 
 
